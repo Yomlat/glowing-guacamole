@@ -22,7 +22,7 @@ object PriceBasket {
 				if (currentOffers.offerType.contains("Reduced")) {
 					val discount = currentOffers.OfferDiscount.getOrElse(0.0)
 					updatedPrice(item) = calculatePriceAmount(stockItem.price, itemQuantity(item), Some(discount))
-					val discountAmount = formatPrice(itemPrice(item) * discount)
+					val discountAmount = formatPrice(basketPrice(item) * discount)
 					offerDescriptions += s"${currentOffers.description.get}: $discountAmount"
 				}
 				else if (currentOffers.offerType.contains("Multi buy")) {
